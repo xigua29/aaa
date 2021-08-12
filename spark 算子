@@ -1,0 +1,13 @@
+glom 将同一个分区里的数据，合成一个Array ----- 1,2,3,4,5,6 3个分区 glom Array(1,2),Array(3,4),Array(5,6)
+union 结构相同的两个df 合并，不去重
+groupBy 分组 value.groupBy("age").agg(collect_list("name"))
+filter 过滤 value.filter(x=>x.age>20)
+distinct 去重
+cache 缓存 默认的persist(StorageLevel.MEMORY_ONLY)
+persist 缓存 可以调缓存级别 (MEMORY[内存],Disk[磁盘],SER[序列化])
+
+
+
+
+sortWithinPartitions 分区内排序 ----- df.sortWithinPartitions("date", "time", "name")
+sort&order by 排序 ---- df.sort("age")
