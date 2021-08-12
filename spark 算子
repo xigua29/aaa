@@ -21,3 +21,6 @@ describe 计算常用最大值，和，平均，个数 ---- df.describe("age")
 head 取前几行 ----- df.head(20)
 first 取第一行
 map mapPartitions 取每个，取每个分区
+
+
+val w = Window.partitionBy("") 分区字段   row_number().over(w)
