@@ -11,3 +11,13 @@ persist 缓存 可以调缓存级别 (MEMORY[内存],Disk[磁盘],SER[序列化]
 
 sortWithinPartitions 分区内排序 ----- df.sortWithinPartitions("date", "time", "name")
 sort&order by 排序 ---- df.sort("age")
+hint("broadcast") 提示性能 广播 ----- df.join(df2.hint("broadcast"),Seq("name"))  df2很大时， 每个task都有副本，使用广播后，保证executor有一个副本，该executor下task共享一个副本，节省开销，提高性能
+selectExpr 复杂表达式 ---- df.selectExpr(datas[0]) 
+filter&where where调用的是filter
+agg 聚合算子 ---- df.agg(max("age"))
+explode 行转列 拆开  df.withColum("age",explode(col("ages")))
+dropDuplicates 去除重复数据
+describe 计算常用最大值，和，平均，个数 ---- df.describe("age")
+head 取前几行 ----- df.head(20)
+first 取第一行
+map mapPartitions 取每个，取每个分区
