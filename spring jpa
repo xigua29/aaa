@@ -1,0 +1,4 @@
+分页
+ServiceImpl 排序对象Sort.Order order = Sort.Order.desc() 封装成PageRequest PageRequest.of(currentPage,pageSize,Sort.by(order)) PageRequest传入Dao中
+JpaRepository中返回结果 Page<> 参数Pageable 
+@Query 使用new 对象来得到结果 select new A() from ....
