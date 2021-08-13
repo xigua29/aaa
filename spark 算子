@@ -26,3 +26,6 @@ map mapPartitions 取每个，取每个分区
 val w = Window.partitionBy("") 分区字段   row_number().over(w)
 coalesce 返回排序的第一个不为null的col ------ df.withColumn("c",coalesce(col("a"),col("age")))
 
+累加器使用
+df.withColumn("sum",expr("AGGREGATE(datas, CAST(0.0 as double),(accumulator,item)->accumulator+item.num)"))
+
